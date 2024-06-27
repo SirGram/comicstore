@@ -5,6 +5,8 @@ import MonthComics from "@/components/Home/MonthComics";
 import Newsletter from "@/components/Newsletter";
 import Button from "@/components/reusable/button";
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const comicIds = [4292, 400, 602, 608, 5225, 960, 5849];
   const today = new Date();

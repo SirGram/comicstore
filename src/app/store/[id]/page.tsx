@@ -1,6 +1,8 @@
 import fetchComic, { fetchComics } from "@/api/api";
+import Loading from "@/app/loading";
 import Comic from "@/components/Comic";
 import IComic from "@/types/types";
+import { Suspense } from "react";
 
 export default async function ComicPage({
   params,
@@ -12,13 +14,10 @@ export default async function ComicPage({
   const comic = await fetchComic(id);
   console.log("comic", comic);
 
-  if (!comic) {
-    return <div>No comic was found</div>;
-  }
-
+  
   let series : IComic[] = [];
 
-  if (comic.series && comic.series.seriesURI) {
+  if (comic && comic.series && comic.series.seriesURI) {
     const seriesNumber = comic.series.seriesURI.split("/").pop();;
     try {
       const [fetchedSeries, _] = await fetchComics({ series: seriesNumber });
@@ -30,5 +29,9 @@ export default async function ComicPage({
     }
   }
 
-  return <Comic item={comic} seriesItems={series} />;
+  return (
+    <Suspense fallback={<Loading />}>
+      <Comic item={comic} seriesItems={series} />
+       </Suspense>
+  )
 }

@@ -2,7 +2,7 @@
 import useStore from "@/app/stores/store";
 import IComic, { IComicCart } from "@/types/types";
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
-import { useMemo } from 'react';
+import { useMemo } from "react";
 import Button from "../reusable/button";
 
 export default function BuyItem({
@@ -60,7 +60,7 @@ export default function BuyItem({
   };
 
   return (
-    <article className="comic flex w-96 h-[28rem] flex-col justify-between bg-secondary  ">
+    <article className="comic flex w-[26rem] h-fit flex-col justify-between bg-secondary  ">
       <div className="flex flex-col justify-between border-b-2 border-border p-5">
         <h3 className="mb-4">Item</h3>
         <div className="flex h-full flex-col justify-around text-center">
@@ -87,7 +87,9 @@ export default function BuyItem({
             }`}
             onClick={addItemToCart}
           >
-           <h3 className="w-full ">{isItemInCart() ? "Added to cart!" : "Add to cart"}</h3>
+            <h3 className="w-full ">
+              {isItemInCart() ? "Added to cart!" : "Add to cart"}
+            </h3>
           </Button>
         </div>
       </div>
@@ -101,14 +103,18 @@ export default function BuyItem({
                 {discountPercentage}% OFF
               </h5>
             </div>
-            <h2 className="mt-2 font-semibold">${discountedPrice(seriesPrice)}</h2>
+            <h2 className="mt-2 font-semibold">
+              ${discountedPrice(seriesPrice)}
+            </h2>
           </div>
           <div className="mt-3 flex h-full gap-2">
             <Button
               className="flex items-center  px-3 text-text text-xl hover:opacity-50"
               onClick={() => seriesItems.forEach(toggleItemInWishList)}
             >
-              {seriesItems.every((seriesItem) => wishlist.some((wishItem) => wishItem.id === seriesItem.id)) ? (
+              {seriesItems.every((seriesItem) =>
+                wishlist.some((wishItem) => wishItem.id === seriesItem.id)
+              ) ? (
                 <FaHeartBroken />
               ) : (
                 <FaHeart />
@@ -120,8 +126,9 @@ export default function BuyItem({
               }`}
               onClick={addSeriesToCart}
             >
-                <h3 className="w-full ">{areSeriesItemsInCart() ? "Added to cart!" : "Add to cart"}</h3>
-             
+              <h3 className="w-full ">
+                {areSeriesItemsInCart() ? "Added to cart!" : "Add to cart"}
+              </h3>
             </Button>
           </div>
         </div>
