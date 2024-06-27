@@ -7,12 +7,15 @@ export default function Footer() {
     <footer className="flex flex-col justify-between items-center  w-full pb-20 mt-6  relative ">
        <div className="bg-bg absolute w-full top-4 bottom-0 -z-10"></div>
       <div className="flex flex-row justify-around w-full  ">
-        <div className=" flex flex-col items-center justify-center gap-7 px-2 py-4 comic  mx-20 h-fit">
+        <div className=" flex flex-1 flex-col items-center justify-center h-full   mx-20 ">
+          <div className="w-min flex flex-col h-fit comic gap-7 px-2 py-4 ">
+
           <FaTwitter className="text-gray-400 text-5xl cursor-pointer" />
           <FaInstagram className="text-gray-400 text-5xl cursor-pointer" />
           <FaFacebook className="text-gray-400 text-5xl cursor-pointer" />
+          </div>
         </div>
-        <div className="flex comic bg-white p-5 flex-1 gap-10">
+        <div className="flex justify-around w-fit comic bg-white p-5  gap-10 rounded-tr-none border-r-none rounded-br-none">
           <div>
             <p className="mb-1">Customer Service</p>
             <ul>

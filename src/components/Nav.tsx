@@ -45,7 +45,7 @@ export default function Nav() {
 <nav
   className={`
     sticky top-0 left-0 right-0 z-30 w-full
-    bg-white border-b-2 border-border dark:border-darkBorder
+   bg-overlay border-b-2 border-border dark:border-darkBorder
     transition-transform duration-300 ease-in-out
     ${!visible ? '-translate-y-full' : 'translate-y-0'}
   `}

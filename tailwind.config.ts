@@ -17,13 +17,14 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          'dots': 'url(/assets/dots.png)',
       },
       colors: {
         main: "#A3E636",
         secondary: "#F5E66B",
         terciary: "#F5C6CB",
         mainAccent: "red",
-        overlay: "rgba(0,0,0,0.8)",
+        overlay: "rgb(200,210,200)",
 
         // light mode
         bg: "#E0E7F1",
