@@ -22,14 +22,14 @@ export default function Newsletter() {
         style={{ objectFit: "cover" }}
         quality={100}
       />
-      <div className="relative z-10 flex flex-col items-center justify-around p-8 w-full shadow-lg h-full backdrop-hue-rotate-30 backdrop-contrast-50 backdrop-saturate-50">
-        <h1 className="font-bold mb-4 text-yellow-300 text-center bg-slate-700 bg-opacity-30 p-2">
+      <div className="relative z-10 flex flex-col items-center justify-around p-8 w-full  h-full backdrop-hue-rotate-30 backdrop-contrast-50 backdrop-saturate-50">
+        <h1 className="font-bold mb-4 text-yellow-300 text-center bg-slate-700 bg-opacity-30 p-2 comic">
           Subscribe to Our Newsletter
         </h1>
 
         <form
           onSubmit={signUpForNewsletter}
-          className="flex w-full max-w-md items-center rounded-md border-2 border-gray-300 dark:border-gray-700 font-base shadow-md"
+          className="flex w-full max-w-md items-center rounded-md border-2 border-gray-300 dark:border-gray-700 font-base "
           role="form"
         >
           <input
@@ -51,7 +51,7 @@ export default function Newsletter() {
           </button>
         </form>
 
-        <ul className="flex gap-4 text-white mb-8 text-center text-lg font-semibold bg-slate-700 bg-opacity-30 p-2">
+        <ul className="flex gap-4 text-white mb-8 text-center text-lg font-semibold bg-slate-700 bg-opacity-30 p-2 comic">
           <li>Latest releases</li>
           <li>|</li>
           <li>Promotions</li>

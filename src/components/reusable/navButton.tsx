@@ -17,7 +17,7 @@ export default function NavButton({ className, children, onClick }: Props) {
       aria-label="Click to perform an action"
       onClick={onClick}
       className={cn(
-        'flex text-text cursor-pointer items-center  border-2 border-border dark:border-darkBorder bg-transparent px-4 py-2 text-sm font-base  ',
+        'flex text-text rounded-base cursor-pointer items-center  border-2 border-border dark:border-darkBorder bg-transparent px-4 py-2 text-sm font-base  ',
         className,
       )}
     >

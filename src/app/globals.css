@@ -2,3 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+  h4 {
+    @apply text-xl;
+  }
+  h5 {
+    @apply text-lg;
+  }
+  h6 {
+    @apply text-base;
+  }
+  @font-face {
+    font-family: "Barlow Condensed";
+    src: url("/fonts/BarlowCondensed-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .comic {
+    @apply shadow-light overflow-hidden rounded-base border-border border-2 dark:border-darkBorder bg-main font-base dark:shadow-dark;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border: 2px solid #000000;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

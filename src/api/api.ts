@@ -1,11 +1,12 @@
-import type Comic from "@/types/types";
+import type IComic from "@/types/types";
+import { Filters } from "@/types/types";
 
 export default async function fetchComic(
-  comicId: string 
-): Promise<Comic | null> {
+  comicId: string
+): Promise<IComic | null> {
   const publicKey: string = process.env.PUBLIC_KEY || "";
   const hash: string = process.env.HASH_KEY || "";
-  const ts: string = "1"; 
+  const ts: string = "1";
 
   if (!publicKey || !hash) {
     console.error("Missing environment variables for authentication");
@@ -23,18 +24,82 @@ export default async function fetchComic(
     }
 
     const data = await res.json();
-    console.log(data);
-    const comics: Comic[] = data.data.results.map(mapComic);
+    const comics: IComic[] = data.data.results.map(mapComic);
 
-    return comics[0]
+    return comics[0];
   } catch (error) {
     console.error("Error fetching comic data:", error);
     return null;
   }
 }
+export async function fetchComics(
+  filters?: Filters
+): Promise<[IComic[], number]> {
+  const publicKey: string = process.env.PUBLIC_KEY || "";
+  const hash: string = process.env.HASH_KEY || "";
+  const ts: string = "1";
+
+  if (!publicKey || !hash) {
+    console.error("Missing environment variables for authentication");
+    return [[], 0];
+  }
+
+  try {
+    let url = `http://gateway.marvel.com/v1/public/comics?&ts=${ts}&apikey=${publicKey}&hash=${hash}&formatType=comic&noVariants=true`;
+
+    if (filters) {
+      if (filters.series) {
+        url += `&series=${filters.series}`;
+      }
+      if (filters.itemLimit) {
+        url += `&limit=${filters.itemLimit}`;
+      }
+      if (filters.offset) {
+        url += `&offset=${filters.offset}`;
+      }
+      if (filters.startYear && filters.startYear !== "unset") {
+        url += `&startYear=${filters.startYear}`;
+      }
+      if (filters.format && filters.format !== "all") {
+        url += `&format=${filters.format}`;
+      }
+      if (filters.titleStartsWith && filters.titleStartsWith.toLowerCase() !== "all") {
+        url += `&titleStartsWith=${filters.titleStartsWith}`;
+      }
+      if (filters.searchTitle && filters.searchTitle !== "") {
+        url += `&title=${filters.searchTitle}`;
+      }
+      if (filters.orderBy) {
+        url += `&orderBy=${filters.orderBy}`;
+      }
+      if (filters.date && filters.date !== "unset") {
+        url += `&dateDescriptor=${filters.date}`;
+      }
+    }
+
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch data: ${res.status} - ${res.statusText}`
+      );
+    }
+
+    const data = await res.json();
+    const comics: IComic[] = data.data.results.map(mapComic);
+    const totalComics: number = data.data.total;
+
+    return [comics, totalComics];
+  } catch (error) {
+    console.error("Error fetching comic data:", error);
+    return [[], 0];
+  }
+}
 
 
-  function mapComic(comicData: any): Comic {
+
+
+function mapComic(comicData: any): IComic {
   return {
     id: comicData.id,
     title: comicData.title.trim(),

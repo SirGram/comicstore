@@ -7,15 +7,15 @@ type Props = {
   currentItem: IComic;
 };
 
-export default function IssueCard({ currentItem }: Props) {
+export default function ComicInfo({ currentItem }: Props) {
   const [activeImage, setActiveImage] = useState<number>(0);
   const [showAllContent, setShowAllContent] = useState<boolean>(false);
 
   return (
     <div className="flex flex-col mb-7 w-full">
       <div className="flex gap-1 w-full h-full">
-        <div className="shrink-0 flex flex-col bg-white">
-          <div className="h-80 w-56 border-border border-2">
+        <div className="shrink-0 flex flex-col bg-white mr-4">
+          <div className="h-80 w-56 border-border border-2 mb-4">
             {currentItem && (
               <CardImage
                 path={`${currentItem.images[activeImage]?.path}.${currentItem?.images[activeImage].extension}`}
@@ -23,10 +23,10 @@ export default function IssueCard({ currentItem }: Props) {
               />
             )}
           </div>
-          <div className="my-3 mx-2 w-56 flex gap-2 flex-wrap">
+          <div className="py-3 px-2 w-56 flex items-center justify-around gap-2 flex-wrap comic">
             {currentItem &&
               currentItem.images.map((image, index) => (
-                <div className={`w-9 h-14 `} key={index}>  
+                <div className={`w-9 h-14 my-[1px] `} key={index}>  
                   <button onClick={() => setActiveImage(index)}>
                     <CardImage
                       path={`${image.path}.${image.extension}`}
@@ -38,13 +38,13 @@ export default function IssueCard({ currentItem }: Props) {
               ))}
           </div>
         </div>
-        <div className=" h-fit">
+        <div className=" h-fit bg-terciary rounded-base overflow-hidden shadow-light border-2  border-border dark:border-darkBorder  font-base dark:shadow-dark">
           <div
-            className={`p-5 flex-1 bg-slate-100 flex flex-col overflow-hidden ${
+            className={`p-5 flex-1  flex flex-col overflow-hidden ${
               showAllContent ? "h-full" : "h-96"
             }`}
           >
-            <h3 className="mb-5">{currentItem?.title}</h3>
+            <h1 className="mb-5">{currentItem?.title}</h1>
             <div className="flex flex-col justify-center gap-1">
               <p className="mb-1">
                 <span className="mr-2 font-semibold">SERIES:</span>
@@ -94,7 +94,7 @@ export default function IssueCard({ currentItem }: Props) {
               </p>
             </div>
           </div>{" "}
-          <div className="w-full justify-end flex bg-slate-100 py-1 pr-5">
+          <div className="w-full justify-end flex py-1 pr-5">
           <button
             onClick={() => setShowAllContent(!showAllContent)}
             className="text-md px-2 hover:opacity-50 transition-opacity"
