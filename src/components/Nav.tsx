@@ -26,7 +26,7 @@ export default function Nav() {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
       setPrevScrollPos(currentScrollPos);
-      setIsAtTop(currentScrollPos === 0);
+      setIsAtTop(currentScrollPos < 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,14 +44,14 @@ export default function Nav() {
   return (
 <nav
   className={`
-    sticky top-0 left-0 right-0 z-30 w-full
+    fixed top-0 left-0 right-0 z-30 w-full
    bg-overlay border-b-2 border-border dark:border-darkBorder
     transition-transform duration-300 ease-in-out
     ${!visible ? '-translate-y-full' : 'translate-y-0'}
   `}
 >
-  <div className="w-full flex justify-between items-center px-10 transition-all duration-300 ease-in-out"
-       style={{height: isAtTop ? '160px' : '60px'}}>
+<div className="w-full flex justify-between items-center px-10 transition-all duration-300 ease-in-out"
+     style={{height: isAtTop ? '160px' : '60px'}}>
         <div className="flex items-center flex-col">
           <Link href="/">
             <Image

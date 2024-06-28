@@ -88,7 +88,7 @@ export default function ComicInfo({ currentItem }: Props) {
               </div>
               <button
                 onClick={() => setShowAllContent(!showAllContent)}
-                className="text-md px-4 py-2 bg-main hover:bg-opacity-80 transition-colors comic"
+                className="text-md px-4 py-2 bg-main hover:bg-opacity-80 transition-colors border-2 border-border"
               >
                 {showAllContent ? "Show Less" : "Show More"}
               </button>

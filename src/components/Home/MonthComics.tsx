@@ -22,8 +22,8 @@ export default function MonthComics({ comics }: { comics: IComic[] }) {
               <li key={comic.id} className="group relative flex flex-col items-center comic overflow-hidden h-28 hover:-translate-y-2 transition-transform">
                 <div className="relative w-full h-full">
                   <Link href={`/store/${comic.id}`} >
-                  <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-85 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h2 className="text-lg font-bold mb-4">${comic.price}</h2>
+                  <div className="absolute inset-0 flex items-center justify-center bg-overlay bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <h1 className="text-lg font-bold top-6 absolute">${comic.price}</h1>
                   </div>
                     <CardImage
                       path={imageUrl}
