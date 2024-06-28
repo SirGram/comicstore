@@ -54,15 +54,15 @@ export default function ComicInfo({ currentItem }: Props) {
               </span>
             ))}
           </p>
-          <div className="comic bg-transparent flex-1 flex flex-col border-2 border-border">
-            <div className="bg-secondary p-4 border-b-2 border-border">
+          <div className="comic bg-terciary flex-1 flex flex-col border-2 border-border">
+            <div className="bg-bg p-4 border-b-2 border-border">
               <h1 className="text-2xl font-bold">{currentItem?.title}</h1>
               <h3 className="text-lg">{currentItem?.series?.seriesName}</h3>
             </div>
             <div className="flex flex-col flex-grow">
               <div
                 ref={contentRef}
-                className={`p-5 flex-1 flex flex-col bg-terciary transition-all duration-300 ease-in-out overflow-hidden`}
+                className={`p-5 flex-1 flex flex-col  transition-all duration-300 ease-in-out overflow-hidden`}
                 style={{
                   maxHeight: showAllContent ? `${contentHeight}px` : "200px",
                 }}
@@ -74,7 +74,7 @@ export default function ComicInfo({ currentItem }: Props) {
                 </h4>
               </div>
             </div>
-            <div className="w-full flex justify-between items-center p-3 border-t-2 border-border bg-secondary">
+            <div className="w-full flex justify-between items-center p-3 border-t-2 border-border bg-overlay">
               <div className="flex gap-4">
                 {currentItem?.pageCount !== undefined && (
                   <span className="font-semibold">

@@ -6,33 +6,33 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  
+
   theme: {
     extend: {
       fontFamily: {
-        sans: ['monospace','sans-serif'],
+        sans: ["monospace", "sans-serif"],
       },
-     
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          'dots': 'url(/assets/dots.png)',
+        dots: "url(/assets/dots.png)",
       },
       colors: {
-        main: "#A3E636",
-        secondary: "#F5E66B",
+        main: "#7a7ad8",
+        secondary: "#93d0fc",
         terciary: "#F5C6CB",
-        mainAccent: "red",
-        overlay: "rgb(200,210,200)",
+        mainAccent: "#ff7863",
+        overlay: "#6fcb9f",
 
         // light mode
-        bg: "#E0E7F1",
+        bg: "#f0b51f",
         text: "#000",
         border: "#000",
 
         // dark mode
-        darkBg: "#111903",
+        darkBg: "#f0b51f",
         darkText: "#eeefe9",
         darkBorder: "#000",
       },

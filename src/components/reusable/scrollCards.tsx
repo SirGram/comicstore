@@ -55,7 +55,7 @@ export default function ScrollCards({
   }, []);
 
   return (
-    <section className="flex flex-col flex-1 rounded-base w-full p-2 px-4 overflow-hidden shadow-light border-2 border-border dark:border-darkBorder bg-main font-base dark:shadow-dark">
+    <section className="flex flex-col flex-1 rounded-base w-full p-2 px-4 overflow-hidden comic bg-secondary">
       <div className="flex justify-between items-center ">
         {title && <h3 className="flex-1">{title}</h3>}
         <div className="flex">

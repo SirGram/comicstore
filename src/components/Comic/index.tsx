@@ -69,7 +69,7 @@ export default function Comic({ item, seriesItems }: ComicProps) {
 
   return (
     <section className="flex px-10 my-5 w-full">
-      <div className="flex flex-col w-full px-5 mt-3 gap-4">
+      <div className="flex flex-col w-full px-5 mt-3 gap-4 ">
         <div className="justify-between w-full flex mb-4">
           <Button
             className="bg-transparent text-2xl px-2 hover:opacity-50 transition-opacity"

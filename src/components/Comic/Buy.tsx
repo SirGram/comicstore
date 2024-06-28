@@ -82,7 +82,7 @@ export default function BuyItem({
             {isItemInWishList() ? <FaHeartBroken /> : <FaHeart />}
           </Button>
           <Button
-            className={`w-full  bg-mainAccent px-2 py-1  font-semibold text-white transition-opacity hover:opacity-50 ${
+            className={`w-full  bg-mainAccent px-2 py-1  font-semibold text-text transition-opacity hover:opacity-50 ${
               isItemInCart() ? "pointer-events-none" : ""
             }`}
             onClick={addItemToCart}
@@ -121,7 +121,7 @@ export default function BuyItem({
               )}
             </Button>
             <Button
-              className={`w-full  bg-mainAccent px-2 py-1 font-semibold  text-white transition-opacity hover:opacity-50 ${
+              className={`w-full  bg-mainAccent px-2 py-1 font-semibold  text-text transition-opacity hover:opacity-50 ${
                 areSeriesItemsInCart() ? "pointer-events-none" : ""
               }`}
               onClick={addSeriesToCart}

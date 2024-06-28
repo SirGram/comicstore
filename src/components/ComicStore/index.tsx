@@ -52,7 +52,7 @@ export default function ComicStore({ items, numberComics, initialPage = 1 }: Com
   }, [filters, page, router]);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center relative py-4">
+    <section className="w-full flex flex-col items-center justify-center relative py-4 bg-bg">
       <div className="flex p-4">
         <FilterSidebar
           isOpen={isSidebarOpen}
@@ -62,8 +62,8 @@ export default function ComicStore({ items, numberComics, initialPage = 1 }: Com
         />
       </div>
 
-      <div className="w-full flex flex-col items-center justify-center relative">
-        <div className="bg-bg absolute w-full top-4 bottom-4 "></div>
+      <div className="w-full flex flex-col items-center justify-center relative ">
+        <div className="bg-overlay absolute w-full top-4 bottom-4 border-y-2 border-border"></div>
         <ComicGrid items={items} />
       </div>
       <div className="mt-10">
