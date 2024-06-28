@@ -8,7 +8,7 @@ export default function NotFound() {
         <div className=" h-full comic bg-mainAccent p-3">
           <h1 className=" text-center text-8xl mb-10">Oooops!</h1>
           <h2 className=" text-center text-2xl">
-            Looks like this page doesn't exist
+            Looks like this page doesn&apos;t exist.
           </h2>
         </div>
       </div>
