@@ -14,7 +14,7 @@ export default function Newsletter() {
     };
 
   return (
-    <div className="relative flex items-center justify-center h-80 w-full">
+    <div className="relative flex  items-center justify-center h-min w-full border-y-2 border-border">
       <Image
         src={newsletter}
         alt="Newsletter background"
@@ -51,7 +51,7 @@ export default function Newsletter() {
           </button>
         </form>
 
-        <ul className="flex gap-4 text-white mb-8 text-center text-lg font-semibold bg-slate-700 bg-opacity-30 p-2 comic">
+        <ul className="flex flex-col mt-2 sm:flex-row gap-4 text-white mb-8 text-center text-lg font-semibold bg-slate-700 bg-opacity-30 p-2 comic">
           <li>Latest releases</li>
           <li>|</li>
           <li>Promotions</li>

@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Offer from "@/components/Offer";
 import Cart from "@/components/modals/Cart";
+import MainContent from "@/components/MainContent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,16 +20,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" >
       <body
-        className={`${inter.className} min-h-screen flex flex-col relative bg-overlay`}
+        className={`${inter.className} min-h-screen flex flex-col relative bg-overlay font-sans`}
       >
         <Nav />
         <Cart />
-
-        <main className="flex-1 flex flex-col justify-center items-center mt-[160px] ">
+        <MainContent>
           {children}
-        </main>
+        </MainContent>
         <Footer />
       </body>
     </html>

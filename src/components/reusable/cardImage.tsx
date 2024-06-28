@@ -8,7 +8,7 @@ type Props = {
 };
 export default function CardImage({ path, title, height = "full" , showShadow = true }: Props) {
   return (
-    <div className={` h-${height} overflow-hidden w-full ${showShadow && "shadow-light  border-border dark:border-darkBorder bg-main font-base dark:shadow-dark"} `}>
+    <div className={` h-${height} will-change-transform overflow-hidden w-full ${showShadow && "shadow-light  border-border dark:border-darkBorder bg-main font-base dark:shadow-dark"} `}>
       <Image
         src={path}
         title={title}

@@ -21,7 +21,7 @@ export default async function Home() {
       <div className="bg-bg bottom-[24rem]  top-0 w-full  absolute -z-10"></div>
       <div className="min-h-[calc(100vh-220px)] flex flex-col md:flex-row justify-around  w-full ">
         <div className="flex flex-col w-full md:w-2/3 mb-10 md:mb-0 items-start min-h-full pt-20  p-8 md:p-20 bg-overlay    rounded-br-xl">
-          <div className="comic p-4 bg-terciary">
+          <div className="comic p-4 bg-tertiary">
             <h1 className="text-4xl font-bold mb-10 text-center md:text-left">
               Explore Our Comic Collection
             </h1>

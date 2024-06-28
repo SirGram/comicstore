@@ -55,7 +55,10 @@ export default function Cart() {
   );
 
   const getItemDiscountedPrice = (item: IComicCart): number => {
-    return (item.price * item.quantity) - ((discountPercentage / 100) * (item.price * item.quantity));
+    return (
+      item.price * item.quantity -
+      (discountPercentage / 100) * (item.price * item.quantity)
+    );
   };
 
   const removeCartItem = (item: IComicCart) => {
@@ -65,22 +68,30 @@ export default function Cart() {
 
   useEffect(() => {
     if (isCartOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isCartOpen]);
 
   return (
     <>
-      <div className={`fixed inset-0 z-50 ${isCartOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'} backdrop-blur-sm backdrop-contrast-50`}>
-        <div className={`fixed right-0 top-0 z-10 h-full flex flex-col w-full md:w-2/4 bg-bg px-8 py-5 transition-transform duration-300 ${isCartOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div
+        className={`fixed inset-0 z-50 ${
+          isCartOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        } backdrop-blur-sm backdrop-contrast-50`}
+      >
+        <div
+          className={`fixed right-0 top-0 z-10 h-full flex flex-col w-full lg:w-3/5 bg-bg px-8 py-5 transition-transform duration-300 ${
+            isCartOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
           <button
-            className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center bg-mainAccent text-5xl comic rounded-none hover:opacity-50"
+            className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center bg-mainAccent text-5xl border-border border-b-2 border-r-2 rounded-none hover:opacity-50"
             onClick={() => setIsCartOpen(false)}
           >
             <IoClose />
@@ -97,7 +108,7 @@ export default function Cart() {
                 {/* ... (shipping progress bar code) */}
                 <div className="flex w-full justify-end mt-2">
                   <Button
-                    className="hover:underline hover:opacity-50 mb-2 bg-mainAccent text-darkText"
+                    className=" w-full sm:w-fit text-center hover:opacity-50 mb-4 bg-mainAccent text-darkText"
                     onClick={emptyCart}
                   >
                     Remove All
@@ -119,7 +130,7 @@ export default function Cart() {
                   ))}
                 </ul>
                 <div className="mt-5">
-                  <div className="flex flex-col comic p-3 bg-terciary">
+                  <div className="flex flex-col comic p-3 bg-tertiary">
                     <div className="flex justify-between">
                       <h4 className="font-light">SubTotal:</h4>
                       <h4 className="text-right font-thin">

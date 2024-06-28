@@ -22,7 +22,7 @@ const config: Config = {
       colors: {
         main: "#7a7ad8",
         secondary: "#93d0fc",
-        terciary: "#F5C6CB",
+        tertiary: "#F5C6CB",
         mainAccent: "#ff7863",
         overlay: "#6fcb9f",
 

@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import NavButton from "./reusable/navButton";
 import logo from "/public/assets/logo.png";
+import logoletters from "/public/assets/logoletters.png";
 import useStore from "@/app/stores/store";
 import Button from "./reusable/button";
 import Offer from "./Offer";
@@ -42,27 +43,51 @@ export default function Nav() {
   };
 
   return (
-<nav
-  className={`
-    fixed top-0 left-0 right-0 z-30 w-full
-   bg-overlay border-b-2 border-border dark:border-darkBorder
-    transition-transform duration-300 ease-in-out
-    ${!visible ? '-translate-y-full' : 'translate-y-0'}
-  `}
->
-<div className="w-full flex justify-between items-center px-10 transition-all duration-300 ease-in-out"
-     style={{height: isAtTop ? '160px' : '60px'}}>
-        <div className="flex items-center flex-col">
-          <Link href="/">
-            <Image
-              className={`transition-all w-auto ${
-                isAtTop ? "h-20" : "h-10"
-              } hover:scale-105`}
-              src={logo}
-              alt="logo"
-            />
+    <nav
+      className={`
+        fixed top-0 left-0 right-0 z-30 w-full
+        transition-all duration-300 ease-in-out
+        ${isAtTop ? "h-48 md:h-40" : "md:h-24 h-16"}
+      `}
+    >
+      <div
+        className={`
+          w-full h-full flex flex-col md:flex-row justify-between items-center px-2 sm:px-10 
+          transition-all duration-300 ease-in-out          
+        bg-overlay border-b-2 border-border dark:border-darkBorder
+        `}
+      >
+        <div className={`flex flex-col  items-center border-b-2 border-border md:border-none w-full 
+         ${isAtTop ? "" : "hidden md:flex"}`}>
+          <Link href="/" className="flex items-center h-full flex-col md:flex-row">
+            <div
+              className={`relative ${
+                isAtTop ? "h-20 w-20 md:h-28 md:w-28" : "h-14 w-14"
+              } transition-all duration-300`}
+            >
+              <Image
+                className="transition-all hover:scale-105 object-contain"
+                src={logo}
+                alt="logo"
+                fill
+              />
+            </div>
+            <div
+              className={`
+                hidden md:flex
+                relative ml-2 ${
+                isAtTop ? "h-20 w-32 -my-8 md:h-32 md:w-96" : "h-20 w-48"
+              } transition-all duration-300`}
+            >
+              <Image
+                className="transition-all hover:scale-105 object-contain "
+                src={logoletters}
+                alt="logo"
+                fill
+              />
+            </div>
           </Link>
-          {isAtTop && <span className="my-2">Your closest store</span>}
+          {isAtTop && <span className="md:-mt-4 text-center ">Your closest store</span>}
         </div>
 
         <div className="flex gap-0 items-center h-full flex-1 justify-end">
@@ -79,7 +104,7 @@ export default function Nav() {
                     pathname.includes(`/${item.toLowerCase()}`)
                       ? "border-black pointer-events-none"
                       : "border-white"
-                  } ${!isAtTop ? "rounded-none border-r-0" : "mr-4"}`}
+                  } ${!isAtTop ? "rounded-none border-r-0" : "sm:mr-4"}`}
                 >
                   {item}
                 </NavButton>
@@ -97,7 +122,11 @@ export default function Nav() {
                 } 
               }`}
             >
-              <AiOutlineHeart className="text-2xl" />
+              <AiOutlineHeart
+                className={`${
+                  isAtTop ? "text-3xl" : "text-xl"
+                } transition-all duration-300`}
+              />
             </NavButton>
           </div>
           <div className="border-l-2 border-border h-full px-4 ml-4 flex items-center justify-center">
@@ -108,12 +137,15 @@ export default function Nav() {
               }`}
             >
               <div className="relative">
-                <AiOutlineShoppingCart className="text-2xl" />
-               
-                  <span className="absolute -top-3 -right-3 text-xs h-5 w-5 flex items-center justify-center rounded-full border-2 border-border text-white bg-mainAccent">
-                    {numberCartItems}
-                  </span>
-                
+                <AiOutlineShoppingCart
+                  className={`${
+                    isAtTop ? "text-3xl" : "text-xl"
+                  } transition-all duration-300`}
+                />
+
+                <span className="absolute -top-3 -right-3 text-xs h-5 w-5 flex items-center justify-center rounded-full border-2 border-border text-white bg-mainAccent">
+                  {numberCartItems}
+                </span>
               </div>
             </Button>
           </div>

@@ -5,17 +5,16 @@ import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="flex flex-col justify-between items-center  w-full pb-20 mt-6  relative  ">
-       <div className="bg-bg absolute w-full top-4 bottom-0 -z-10 border-border border-t-2"></div>
-      <div className="flex flex-row justify-around w-full  ">
+      <div className="bg-bg absolute w-full top-4 bottom-0 -z-10 border-border border-t-2"></div>
+      <div className="flex flex-col sm:flex-row gap-2 justify-around w-full  ">
         <div className=" flex flex-1 flex-col items-center justify-center h-full   mx-20 ">
           <div className="w-min flex flex-col h-fit comic gap-7 px-2 py-4 ">
-
-          <FaTwitter className="text-gray-400 text-5xl cursor-pointer" />
-          <FaInstagram className="text-gray-400 text-5xl cursor-pointer" />
-          <FaFacebook className="text-gray-400 text-5xl cursor-pointer" />
+            <FaTwitter className="text-gray-400 text-5xl cursor-pointer" />
+            <FaInstagram className="text-gray-400 text-5xl cursor-pointer" />
+            <FaFacebook className="text-gray-400 text-5xl cursor-pointer" />
           </div>
         </div>
-        <div className="flex justify-around w-fit comic bg-white p-5  gap-10 rounded-tr-none border-r-none rounded-br-none">
+        <div className="flex justify-around sm:w-fit w-full comic bg-white p-5  gap-10 rounded-tr-none border-r-none rounded-br-none">
           <div>
             <p className="mb-1">Customer Service</p>
             <ul>
@@ -121,12 +120,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-row  items-center relative w-full pt-10 justify-around">
-        <div className="flex flex-col">
+      <div className="flex flex-row  items-center relative w-full pt-10 justify-around gap-2 px-2 ">
+        <div className="flex flex-col text-left gap-2">
           <span>&copy;PRINCESTON COMICS</span>
           <span>2024 | All rights reserved</span>
         </div>
-        <div>
+        <div className="text-right gap-2">
           <a
             href="https://github.com/SirGram"
             target="_blank"

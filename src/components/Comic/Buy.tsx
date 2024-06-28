@@ -60,7 +60,7 @@ export default function BuyItem({
   };
 
   return (
-    <article className="comic flex w-[26rem] h-fit flex-col justify-between bg-secondary  ">
+    <article className="comic flex w-full md:w-[26rem] h-fit flex-col justify-between bg-secondary  ">
       <div className="flex flex-col justify-between border-b-2 border-border p-5">
         <h3 className="mb-4">Item</h3>
         <div className="flex h-full flex-col justify-around text-center">
@@ -94,7 +94,7 @@ export default function BuyItem({
         </div>
       </div>
       {seriesItems && seriesItems.length > 0 && (
-        <div className="flex flex-col justify-between p-5 pt-0">
+        <div className="flex flex-col justify-between p-5 pt-4">
           <h3 className="mb-4">Series</h3>
           <div className="flex h-full flex-col justify-around text-center">
             <div className="flex items-center justify-around">

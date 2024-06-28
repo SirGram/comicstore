@@ -25,7 +25,12 @@ type CartSlice = {
   setIsCartOpen: (isOpen: boolean) => void;
 };
 
-type StoreState = SeenItemsSlice & WishListSlice & CartSlice;
+type OfferSlice = {
+  isOfferVisible: boolean;
+  setIsOfferVisible: (isVisible: boolean) => void;
+};
+
+type StoreState = SeenItemsSlice & WishListSlice & CartSlice & OfferSlice;
 
 const useStore = create<StoreState>((set) => ({
   // SeenItemsSlice
@@ -97,6 +102,12 @@ const useStore = create<StoreState>((set) => ({
       );
       return { cart: updatedCart };
     });
+  },
+
+  // OfferSlice
+  isOfferVisible: true,
+  setIsOfferVisible: (isVisible: boolean) => {
+    set({ isOfferVisible: isVisible });
   },
 }));
 

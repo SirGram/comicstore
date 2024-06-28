@@ -55,13 +55,13 @@ export default function ScrollCards({
   }, []);
 
   return (
-    <section className="flex flex-col flex-1 rounded-base w-full p-2 px-4 overflow-hidden comic bg-secondary">
+    <article className="flex flex-col flex-1 rounded-base w-full p-2 px-4 overflow-hidden comic bg-secondary">
       <div className="flex justify-between items-center ">
         {title && <h3 className="flex-1">{title}</h3>}
         <div className="flex">
           <button
             onClick={() => scroll("left")}
-            className={`mr-1 text-xl size-8 bg-terciary flex items-center justify-center border-border border-2 rounded-base ${
+            className={`mr-1 text-xl size-8 bg-tertiary flex items-center justify-center border-border border-2 rounded-base ${
               canScrollLeft
                 ? "hover:opacity-50 transition-opacity"
                 : "opacity-10 cursor-not-allowed"
@@ -72,7 +72,7 @@ export default function ScrollCards({
           </button>
           <button
             onClick={() => scroll("right")}
-            className={`text-xl size-8 bg-terciary flex items-center justify-center border-border border-2 rounded-base ${
+            className={`text-xl size-8 bg-tertiary flex items-center justify-center border-border border-2 rounded-base ${
               canScrollRight
                 ? "hover:opacity-50 transition-opacity"
                 : "opacity-10 cursor-not-allowed"
@@ -119,7 +119,7 @@ export default function ScrollCards({
                   currentItem?.title === item.title &&
                   currentItem?.description === item.description
                     ? "bg-secondary"
-                    : "bg-terciary"
+                    : "bg-tertiary"
                 }`}
               >
                 #{item.issueNumber}
@@ -128,6 +128,6 @@ export default function ScrollCards({
           </div>
         ))}
       </div>
-    </section>
+    </article>
   );
 }

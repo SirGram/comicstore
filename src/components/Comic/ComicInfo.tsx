@@ -20,20 +20,24 @@ export default function ComicInfo({ currentItem }: Props) {
   }, [currentItem]);
 
   return (
-    <div className="flex flex-col mb-7 w-full">
-      <div className="flex gap-6 w-full h-full">
+    <div className="flex flex-col lg:mb-8 w-full">
+      <div className="flex flex-col lg:flex-row gap-6 w-full h-full">
         <div className="shrink-0 flex flex-col">
-          <div className="h-80 w-56 border-border border-2 mb-4">
+          <div className=" w-full h-full md:w-80 md:h-[30rem] border-border border-2 mb-4">
             {currentItem && (
               <CardImage
-                path={`${currentItem.images[activeImage]?.path}.${currentItem?.images[activeImage].extension}`}
+                path={
+                  currentItem.images[activeImage]
+                    ? `${currentItem.images[activeImage]?.path}.${currentItem?.images[activeImage].extension}`
+                    : ""
+                }
                 title={currentItem?.title}
               />
             )}
           </div>
-          <div className="py-3 px-2 max-w-56 flex items-center justify-around gap-2 flex-wrap comic w-fit">
-            {currentItem &&
-              currentItem.images.map((image, index) => (
+          {currentItem && currentItem.images.length > 0 && (
+            <div className="py-3  max-w-80 px-2  flex items-center justify-around gap-2 flex-wrap comic w-fit">
+              {currentItem.images.map((image, index) => (
                 <div className={`w-9 h-14 m-[1px] `} key={index}>
                   <button onClick={() => setActiveImage(index)}>
                     <CardImage
@@ -44,17 +48,20 @@ export default function ComicInfo({ currentItem }: Props) {
                   </button>
                 </div>
               ))}
-          </div>
+            </div>
+          )}
         </div>
         <div className="flex-1 flex flex-col">
-          <p className="comic flex flex-wrap gap-2 bg-secondary mb-4  w-fit mx-auto self-center justify-center">
-            {currentItem?.creators?.map((creator, index) => (
-              <span key={index} className=" px-2 py-1 rounded">
-                {creator}
-              </span>
-            ))}
-          </p>
-          <div className="comic bg-terciary flex-1 flex flex-col border-2 border-border">
+          {currentItem?.creators?.length > 0 && (
+            <p className="comic flex flex-wrap gap-2 bg-secondary mb-4  w-fit mx-auto self-center justify-center">
+              {currentItem?.creators?.map((creator, index) => (
+                <span key={index} className=" px-2 py-1 rounded">
+                  {creator}
+                </span>
+              ))}
+            </p>
+          )}
+          <div className="comic bg-tertiary  flex flex-col border-2 border-border">
             <div className="bg-bg p-4 border-b-2 border-border">
               <h1 className="text-2xl font-bold">{currentItem?.title}</h1>
               <h3 className="text-lg">{currentItem?.series?.seriesName}</h3>
@@ -86,12 +93,14 @@ export default function ComicInfo({ currentItem }: Props) {
                 )}
                 <span className="font-semibold">{currentItem?.format}</span>
               </div>
-              <button
-                onClick={() => setShowAllContent(!showAllContent)}
-                className="text-md px-4 py-2 bg-main hover:bg-opacity-80 transition-colors border-2 border-border"
-              >
-                {showAllContent ? "Show Less" : "Show More"}
-              </button>
+              {contentHeight > 200 && (
+                <button
+                  onClick={() => setShowAllContent(!showAllContent)}
+                  className="text-md px-4 py-2 bg-main hover:bg-opacity-80 transition-colors border-2 border-border"
+                >
+                  {showAllContent ? "Show Less" : "Show More"}
+                </button>
+              )}
             </div>
           </div>
         </div>
