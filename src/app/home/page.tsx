@@ -28,8 +28,8 @@ export default async function Home() {
               Welcome to the World of Comics!
             </h1>
             <p className="text-md text-center md:text-left mt-4 text-muted">
-              Whether you're a long-time fan or just starting your comic journey,
-              you're in the right place. Explore our vast library of comics, 
+              Whether you&apos;re a long-time fan or just starting your comic journey,
+              you&apos;re in the right place. Explore our vast library of comics, 
               discover hidden gems, and find your next favorite story!
             </p>
           </div>
