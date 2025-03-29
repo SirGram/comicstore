@@ -8,6 +8,8 @@ export default async function fetchComic(
   const hash: string = process.env.HASH_KEY || "";
   const ts: string = "1";
 
+  console.log(publicKey, hash, ts);
+
   if (!publicKey || !hash) {
     console.error("Missing environment variables for authentication");
     return null;
@@ -38,6 +40,9 @@ export async function fetchComics(
   const publicKey: string = process.env.PUBLIC_KEY || "";
   const hash: string = process.env.HASH_KEY || "";
   const ts: string = "1";
+
+  
+  console.log(publicKey, hash, ts);
 
   if (!publicKey || !hash) {
     console.error("Missing environment variables for authentication");

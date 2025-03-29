@@ -18,34 +18,55 @@ export default async function Home() {
 
   return (
     <section className="flex flex-col justify-center items-center w-full relative">
-      <div className="bg-bg bottom-[24rem]  top-0 w-full  absolute -z-10"></div>
-      <div className="min-h-[calc(100vh-220px)] flex flex-col md:flex-row justify-around  w-full ">
-        <div className="flex flex-col w-full md:w-2/3 mb-10 md:mb-0 items-start min-h-full pt-20  p-8 md:p-20 bg-overlay    rounded-br-xl">
-          <div className="comic p-4 bg-tertiary">
-            <h1 className="text-4xl font-bold mb-10 text-center md:text-left">
-              Explore Our Comic Collection
+      <div className="bg-bg bottom-[24rem] top-0 w-full absolute -z-10"></div>
+      <div className="min-h-[calc(100vh-220px)] flex flex-col md:flex-row justify-around w-full">
+        <div className="flex flex-col w-full md:w-2/3 mb-10 md:mb-0 items-start min-h-full pt-20 p-8 md:p-20 bg-overlay rounded-br-xl">
+          
+          {/* New: Welcome Section */}
+          <div className="comic bg-transparent mb-10 p-4 bg-light rounded-xl shadow-md">
+            <h1 className="text-3xl font-semibold text-center md:text-left text-dark">
+              Welcome to the World of Comics!
             </h1>
-            <p className="text-lg mb-20 text-center md:text-left">
+            <p className="text-md text-center md:text-left mt-4 text-muted">
+              Whether you're a long-time fan or just starting your comic journey,
+              you're in the right place. Explore our vast library of comics, 
+              discover hidden gems, and find your next favorite story!
+            </p>
+          </div>
+          
+          {/* Main content section */}
+          <div className="comic p-4 bg-tertiary rounded-xl shadow-lg">
+            <h2 className="text-2xl font-bold mb-10 text-center md:text-left text-primary">
+              Explore Our Comic Collection
+            </h2>
+            <p className="text-lg mb-20 text-center md:text-left text-muted">
               Dive into a world of adventure, mystery, and excitement with our
               extensive collection of comics. From timeless classics to the
               latest releases, there&apos;s something for every comic
               enthusiast.
             </p>
             <Link href="/store" passHref>
-              <Button className="w-fit text-xl self-end mr-4">
+              <Button className="w-fit text-xl self-end mr-4 bg-primary hover:bg-secondary">
                 Let&apos;s go!
               </Button>
             </Link>
           </div>
+
         </div>
-        <div className="h-full w-full md:w-1/3 flex-1 flex justify-center items-center  ">
+
+        {/* Featured Comic of the Day */}
+        <div className="h-full w-full md:w-1/3 flex-1 flex justify-center items-center">
           {randomComic && <DayComic comic={randomComic} />}
         </div>
       </div>
-      <div className="w-full ">
+
+      {/* Month's Best Comics */}
+      <div className="w-full mt-10">
         <MonthComics comics={lastMonthComics.slice(0, 20)} />
       </div>
-      <div className="w-full mt-10 ">
+
+      {/* Newsletter Signup Section */}
+      <div className="w-full mt-10">
         <Newsletter />
       </div>
     </section>
